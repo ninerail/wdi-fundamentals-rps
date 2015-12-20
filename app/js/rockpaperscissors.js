@@ -23,29 +23,47 @@ function randomPlay() {
 
 function getPlayerMove(move) {
     move || getInput();
-    return move;
+    return playerMove;
 }
 
 function getComputerMove(move) {
     move || randomPlay();
-    return move;
+    return computerMove
 }
 
 function getWinner(playerMove,computerMove) {
     var winner;
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
-    return winner;
+    if (playerMove === "rock" && computerMove === "rock") {
+        return "tie";
+    } else if (playerMove === "rock" && computerMove === "paper") {
+        return "computer";
+    } else if (playerMove === "rock" && computerMove === "scissors") {
+        return "player";
+    } else if (playerMove === "paper" && computerMove === "rock") {
+        return "player";
+    } else if (playerMove === "paper" && computerMove === "paper") {
+        return "tie";
+    } else if (playerMove === "paper" && computerMove === "scissors") {
+        return "computer";
+    } else if (playerMove === "scissors" && computerMove === "rock") {
+        return "computer";
+    } else if (playerMove === "scissors" && computerMove === "paper") {
+        return "player";
+    } else if (playerMove === "scissors" && computerMove === "scissors") {
+        return "tie";
+    };
 }
+
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+    for (i = 0; i < 5; i++) {
+    	//Play one round of the game here//
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently player: ' + playerWins + ' to computer: ' + computerWins + '\n');
+    }
 }
+
 
