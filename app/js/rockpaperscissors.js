@@ -66,4 +66,12 @@ function playToFive() {
     }
 }
 
-
+function playTo(x) {
+    console.log("Let's play Rock, Paper, Scissors");
+    var playerWins = 0;
+    var computerWins = 0;
+    for (i = 0; i < x; i++) {
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently player: ' + playerWins + ' to computer: ' + computerWins + '\n');
+    }
+}
