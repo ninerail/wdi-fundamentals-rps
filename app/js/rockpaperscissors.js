@@ -22,13 +22,11 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    move || getInput();
-    return playerMove;
+    return move || getInput();
 }
 
 function getComputerMove(move) {
-    move || randomPlay();
-    return computerMove
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -51,27 +49,27 @@ function getWinner(playerMove,computerMove) {
         return "player";
     } else if (playerMove === "scissors" && computerMove === "scissors") {
         return "tie";
-    };
+    }
 }
+
 
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    for (i = 0; i < 5; i++) {
-    	//Play one round of the game here//
-        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
-        console.log('The score is currently player: ' + playerWins + ' to computer: ' + computerWins + '\n');
-    }
-}
-
-function playTo(x) {
-    console.log("Let's play Rock, Paper, Scissors");
-    var playerWins = 0;
-    var computerWins = 0;
-    for (i = 0; i < x; i++) {
-        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
-        console.log('The score is currently player: ' + playerWins + ' to computer: ' + computerWins + '\n');
+    while ((playerWins < 5) && (computerWins < 5)) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove, computerMove);
+        if (winner == "player") {
+            playerWins++;
+        } else if (winner == "computer") {
+            computerWins++;
+        }
+        console.log('Player chose ' + playerMove + ' while Computer chose ' +
+            computerMove);
+        console.log('The score is currently player: ' + playerWins +
+            ' to computer: ' + computerWins + '\n');
     }
 }
